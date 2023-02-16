@@ -1,19 +1,15 @@
-import "../styles/style.css";
 import Picture from "./Picture";
+import data from "../utils/data";
+import "../styles/HomePage.css";
 
-const HomePage = ({ data }) => {
-  console.log(data);
+const HomePage = () => {
   return (
     <div>
-      <h1>Image Gallery</h1>
-      <div className="morePicture">
-        {data.map((item, key) => (
-          <Picture
-            photographer={item.photographer}
-            src={item.src}
-            key={key.id}
-          />
-        ))}
+      <h1>Image Gallary</h1>
+      <div className="pictures">
+        {data.map(({ photographer, src }) => {
+          return <Picture photographer={photographer} src={src} />;
+        })}
       </div>
     </div>
   );
